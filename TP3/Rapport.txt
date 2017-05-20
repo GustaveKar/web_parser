@@ -1,0 +1,48 @@
+Rapport
+
+Julien Allard et Karengera Gustave
+
+Environnement
+
+Pour travailler, on a utilisé la version 7 de PHP. Ainsi, puisque mysql n’est plus supporté dans la version 7, on a utilisé mysqli qui offre les mêmes fonctions que mysql.
+
+Partie Parsing
+
+Le parsing se fait avec l’aide d’une ensemble de classes définie dans functions.php qui s’occupe de créer un objet représentant la fonction en lisant ligne par ligne le fichier du données fourni. Il y a une classe mère “FunctionBase” qui regroupe toutes les informations communes à chaque appel de fonction. Ensuite, on a les classes spécialisées qui représentent les fonctions d’appel.
+
+Partie Visualisation
+
+La visualisation se fait avec 2 librairies. Soit PHPChart pour la visualisation du “Time Elapsed” et du “Time Seek Read” et Google Chart API pour la visualisation du “NbCalls”. On a  commencé par utiliser PHPChart pour faire la visualisation, mais je me suis rendu après avoir faire les deux premiers graphes qu’il fallait payer pour avoir accès au graphe avec barres. Donc, on a utilisé une autre API pour faire le graphe de “NbCalls”.
+
+
+TimeElapsed
+
+L’axe des  X est représenté par le nombre de seconds après la date du premier appel.
+L’axe des Y représente le temps écoulé en millisecondes pour une requête à cette seconde.
+Le fichier de données reçoit plusieurs requêtes par secondes, mais seulement une requête est compté pour le graphe ce qui peut causer un manque de données si le fichier fourni ne contient pas assez de données. La même est vrai pour le TimeSeekRead
+
+TimeSeekRead
+Nous n’avons pas trouvé de données pour la visualisation de “Time Seek Read” donc elle est toujours à 0 et nous avons un problème où la ligne de graphe ne s’affiche pas si les éléments sont tous à 0.
+
+
+
+
+
+
+
+NbCalls
+
+Cette partie utilise le Google Chart API pour visualiser le nombre d’appels à une date donnée par intervalle de 5 minutes.
+
+
+
+Problème avec le serveur de l’Université de Montréal
+
+La partie visualisation ne semble pas marcher sur le serveur fourni par l’Université de Montréal.
+Il n’arrive pas à trouver le fichier de config pour faire marcher PHPChart.
+
+Je travaille sous un environnement windows avec IIS en localhost et cela fonctionne bien.
+
+
+
+
