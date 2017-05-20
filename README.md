@@ -1,0 +1,1 @@
+Implementation of a web parser in php which allow users (database administrators) to visualize database access statistics. Import needed: Phpchart: "php charting and graphing component for rendering responsive data-driven"
